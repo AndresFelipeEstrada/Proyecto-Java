@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class App {
+
     private static Scanner sc;
     static String[][] matriz = new String[6][6];
     static String nombre, telefono, direccion, correo, cc;
@@ -23,7 +24,7 @@ public class App {
             System.out.println(" 6 - Salir\n");
 
             try {
-                System.out.println("Escribe una de las opciones: ");
+                System.out.println("Elige una opcion: ");
                 opcion = sc.nextInt();
 
                 switch (opcion) {
@@ -41,18 +42,18 @@ public class App {
                         break;
                     case 5:
                         imprimir(matriz);
+                        mostrarMayor(matriz);
+                        mostrarMenor(matriz);
                         break;
                     case 6:
                         salir = true;
                         break;
                 }
             } catch (Exception e) {
-                System.out.println("ERROR EN EL SISTEMA: " + e);
+                System.out.println("ERROR: " + e);
                 sc.next();
             }
         }
-
-        // mayorMenor(matriz);
         sc.close();
     }
 
@@ -84,6 +85,7 @@ public class App {
             cc = sc.next();
             matriz[i][5] = cc;
         }
+
     }
 
     public static void buscar(Object matriz[][]) {
@@ -128,7 +130,7 @@ public class App {
 
                     eliminar = true;
 
-                    System.out.println("SE HA ELIMINA EL USUARIO");
+                    System.out.println("SE HA ELIMINADO EL USUARIO");
 
                 }
             }
@@ -153,7 +155,7 @@ public class App {
 
                     System.out.println("Ingrese la edad del usuario ");
                     edad = sc.nextInt();
-                    matriz[i][1] = edad;
+                    matriz[i][1] = Integer.toString(edad);
 
                     System.out.println("Ingrese el telefono del usuario ");
                     telefono = sc.next();
@@ -182,10 +184,11 @@ public class App {
 
     }
 
-    public static void imprimir(Object matriz[][]) {
-
+    public static void imprimir(String matriz[][]) {
         System.out.println("NOMBRE  | EDAD |     TELEFONO     |     DIRECCION   |     CORREO      |   CEDULA");
+
         for (int x = 0; x < matriz.length; x++) {
+
             for (int y = 0; y < matriz[x].length; y++) {
 
                 System.out.print(matriz[x][y]);
@@ -197,46 +200,43 @@ public class App {
             System.out.println("|");
         }
 
-        System.out.println("--------------------MAYOR Y MENOR----------------------------------------------");
-        int numeroMayor;
-        int numeroMenor;
-        numeroMayor = numeroMenor = (int) matriz[0][0];
+    }
 
+    /*
+     * 0 1 2 3 4 5
+     * 0 andres 99 11 22 33 44
+     * 1 maria 10 11 22 33 44
+     * 2 jose 40 11 22 33 44
+     * 3 daniel 22 11 22 33 44
+     * 4 marta 25 11 22 33 44
+     * 5 camilo 15 11 22 33 44
+     */
+
+    public static void mostrarMayor(String matriz[][]) {
+        int mayor = Integer.parseInt(matriz[0][1]);
         for (int i = 0; i < matriz.length; i++) {
-
-            for (int j = 0; j < matriz[i].length; j++) {
+            if (Integer.parseInt(matriz[i][1]) > mayor) {
+                mayor = Integer.parseInt(matriz[i][1]);
+                String nombreMayor = matriz[i][0];
                 
-                if (Integer.parseInt((String) matriz[i][1]) > numeroMayor) {
-                    numeroMayor = Integer.parseInt((String) matriz[0][1]);
-                }
-    
-                if (Integer.parseInt((String) matriz[i][1]) <= numeroMenor) {
-                    numeroMenor = Integer.parseInt((String) matriz[0][1]);
-                }
             }
         }
-
-        System.out.println("Numero mayor: " + numeroMayor);
-        System.out.println("Numero menor: " + numeroMenor);
-
+        System.out.println("el mayor es: " + mayor);
     }
 
-    public static void verificacion(String cc, Object matriz[][]) {
-        boolean encontrado = false;
+    public static void mostrarMenor(String matriz[][]) {
+        int menor = Integer.parseInt(matriz[0][1]);
+        
+
         for (int i = 0; i < matriz.length; i++) {
 
-            if (matriz[i][0].equals(cc)) {
-                encontrado = true;
-            } else {
-                encontrado = false;
+            if (Integer.parseInt(matriz[i][1]) < menor) {
+                menor = Integer.parseInt(matriz[i][1]);
+                String nombreMenor = matriz[i][0];
+                
             }
-
         }
-        if (encontrado == true) {
-            System.out.println("La cedula " + cc + " esta registrado");
-        } else {
-            System.out.println("La cedula " + cc + " no esta registrado");
-        }
-
+        System.out.println("el menor es: " + menor);
     }
+
 }
