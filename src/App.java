@@ -59,8 +59,7 @@ public class App {
 
     public static void agregar() {
 
-        for (int i = 0; i < 6; i++) {
-
+        for (int i = 0; i < matriz.length; i++) {
             System.out.println("Ingrese el nombre del usuario " + (i + 1));
             nombre = sc.next();
             matriz[i][0] = nombre;
@@ -84,6 +83,39 @@ public class App {
             System.out.println("Ingrese la cedula del usuario " + (i + 1));
             cc = sc.next();
             matriz[i][5] = cc;
+
+        }
+
+        String cedula05 = matriz[0][5];
+        String cedula15 = matriz[1][5];
+        String cedula25 = matriz[2][5];
+        String cedula35 = matriz[3][5];
+        String cedula45 = matriz[4][5];
+        String cedula55 = matriz[5][5];
+
+        if (cedula05.equals(cedula15) || cedula05.equals(cedula25) || cedula05.equals(cedula35)
+                || cedula05.equals(cedula45) || cedula05.equals(cedula55)) {
+            System.out.println("ERROR LA CEDULA " + cedula05 + " YA HA SIDO INGRESADA ");
+
+        } else if (cedula15.equals(cedula05) || cedula15.equals(cedula25) || cedula15.equals(cedula35)
+                || cedula15.equals(cedula45) || cedula15.equals(cedula55)) {
+            System.out.println("ERROR LA CEDULA " + cedula15 + " YA HA SIDO INGRESADA ");
+
+        } else if (cedula25.equals(cedula05) || cedula25.equals(cedula15) || cedula25.equals(cedula35)
+                || cedula25.equals(cedula45) || cedula25.equals(cedula55)) {
+            System.out.println("ERROR LA CEDULA " + cedula25 + " YA HA SIDO INGRESADA ");
+
+        } else if (cedula35.equals(cedula05) || cedula35.equals(cedula15) || cedula35.equals(cedula25)
+                || cedula35.equals(cedula45) || cedula35.equals(cedula55)) {
+            System.out.println("ERROR LA CEDULA " + cedula35 + " YA HA SIDO INGRESADA ");
+
+        } else if (cedula45.equals(cedula05) || cedula45.equals(cedula15) || cedula45.equals(cedula25)
+                || cedula45.equals(cedula35) || cedula45.equals(cedula55)) {
+            System.out.println("ERROR LA CEDULA " + cedula45 + " YA HA SIDO INGRESADA ");
+
+        } else if (cedula55.equals(cedula05) || cedula55.equals(cedula15) || cedula55.equals(cedula25)
+                || cedula55.equals(cedula35) || cedula55.equals(cedula45)) {
+            System.out.println("ERROR LA CEDULA " + cedula55 + " YA HA SIDO INGRESADA ");
         }
 
     }
@@ -202,41 +234,34 @@ public class App {
 
     }
 
-    /*
-     * 0 1 2 3 4 5
-     * 0 andres 99 11 22 33 44
-     * 1 maria 10 11 22 33 44
-     * 2 jose 40 11 22 33 44
-     * 3 daniel 22 11 22 33 44
-     * 4 marta 25 11 22 33 44
-     * 5 camilo 15 11 22 33 44
-     */
-
     public static void mostrarMayor(String matriz[][]) {
+
         int mayor = Integer.parseInt(matriz[0][1]);
+        String nombreMayor = matriz[0][0];
+
         for (int i = 0; i < matriz.length; i++) {
             if (Integer.parseInt(matriz[i][1]) > mayor) {
                 mayor = Integer.parseInt(matriz[i][1]);
-                String nombreMayor = matriz[i][0];
-                
+                nombreMayor = matriz[i][0];
+
             }
         }
-        System.out.println("el mayor es: " + mayor);
+        System.out.println("el mayor es: " + nombreMayor);
     }
 
     public static void mostrarMenor(String matriz[][]) {
+
         int menor = Integer.parseInt(matriz[0][1]);
-        
+        String nombreMenor = matriz[0][0];
 
         for (int i = 0; i < matriz.length; i++) {
 
             if (Integer.parseInt(matriz[i][1]) < menor) {
                 menor = Integer.parseInt(matriz[i][1]);
-                String nombreMenor = matriz[i][0];
-                
+                nombreMenor = matriz[i][0];
+
             }
         }
-        System.out.println("el menor es: " + menor);
+        System.out.println("el menor es: " + nombreMenor);
     }
-
 }
