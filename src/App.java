@@ -120,59 +120,59 @@ public class App {
 
     }
 
-    public static void buscar(Object matriz[][]) {
+    public static void buscar(String matriz[][]) {
         boolean buscar = false;
         System.out.println("Ingrese la cedula del usuario que desea buscar: ");
         String dato = sc.next();
 
         for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz.length; j++) {
-                if (matriz[i][j].equals(dato)) {
-                    System.out.print(" Nombre: " + matriz[i][0] +
-                            " EDAD: " + matriz[i][1] +
-                            " TELEFONO: " + matriz[i][2] +
-                            " DIRECCION: " + matriz[i][3] +
-                            " CORREO: " + matriz[i][4] +
-                            " C.C: " + matriz[i][5]);
 
-                    buscar = true;
+            if (matriz[i][5].equals(dato)) {
+                System.out.print(" Nombre: " + matriz[i][0] +
+                        " EDAD: " + matriz[i][1] +
+                        " TELEFONO: " + matriz[i][2] +
+                        " DIRECCION: " + matriz[i][3] +
+                        " CORREO: " + matriz[i][4] +
+                        " C.C: " + matriz[i][5]);
 
-                }
+                buscar = true;
+
             }
+
         }
         if (buscar == false) {
             System.out.println("EL USUARIO NO SE HA ENCONTRADO");
         }
     }
 
-    public static void eliminar(Object matriz[][]) {
+    public static void eliminar(String matriz[][]) {
         boolean eliminar = false;
         System.out.println("Ingrese la cedula del usuario que desea eliminar: ");
         String dato = sc.next();
 
         for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz.length; j++) {
-                if (matriz[i][j].equals(dato)) {
-                    matriz[i][0] = null;
-                    matriz[i][1] = null;
-                    matriz[i][2] = null;
-                    matriz[i][3] = null;
-                    matriz[i][4] = null;
-                    matriz[i][5] = null;
 
-                    eliminar = true;
+            if (matriz[i][5].equals(dato) || matriz[i][5] == null) {
+                matriz[i][0] = Integer.toString(0);
+                matriz[i][1] = Integer.toString(0);
+                matriz[i][2] = Integer.toString(0);
+                matriz[i][3] = Integer.toString(0);
+                matriz[i][4] = Integer.toString(0);
+                matriz[i][5] = Integer.toString(0);
 
-                    System.out.println("SE HA ELIMINADO EL USUARIO");
+                eliminar = true;
 
-                }
+                System.out.println("SE HA ELIMINADO EL USUARIO");
+
             }
+
         }
         if (eliminar == false) {
             System.out.println("EL USUARIO NO SE HA ENCONTRADO");
         }
     }
 
-    public static void actualiar(Object matriz[][]) {
+    public static void actualiar(String matriz[][]) {
         boolean modificado = false;
         System.out.println("Ingrese la cedula del usuario que desea actualizar: ");
         String dato = sc.next();
