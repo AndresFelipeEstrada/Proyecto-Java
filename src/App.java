@@ -85,39 +85,6 @@ public class App {
             matriz[i][5] = cc;
 
         }
-
-        String cedula05 = matriz[0][5];
-        String cedula15 = matriz[1][5];
-        String cedula25 = matriz[2][5];
-        String cedula35 = matriz[3][5];
-        String cedula45 = matriz[4][5];
-        String cedula55 = matriz[5][5];
-
-        if (cedula05.equals(cedula15) || cedula05.equals(cedula25) || cedula05.equals(cedula35)
-                || cedula05.equals(cedula45) || cedula05.equals(cedula55)) {
-            System.out.println("ERROR LA CEDULA " + cedula05 + " YA HA SIDO INGRESADA ");
-
-        } else if (cedula15.equals(cedula05) || cedula15.equals(cedula25) || cedula15.equals(cedula35)
-                || cedula15.equals(cedula45) || cedula15.equals(cedula55)) {
-            System.out.println("ERROR LA CEDULA " + cedula15 + " YA HA SIDO INGRESADA ");
-
-        } else if (cedula25.equals(cedula05) || cedula25.equals(cedula15) || cedula25.equals(cedula35)
-                || cedula25.equals(cedula45) || cedula25.equals(cedula55)) {
-            System.out.println("ERROR LA CEDULA " + cedula25 + " YA HA SIDO INGRESADA ");
-
-        } else if (cedula35.equals(cedula05) || cedula35.equals(cedula15) || cedula35.equals(cedula25)
-                || cedula35.equals(cedula45) || cedula35.equals(cedula55)) {
-            System.out.println("ERROR LA CEDULA " + cedula35 + " YA HA SIDO INGRESADA ");
-
-        } else if (cedula45.equals(cedula05) || cedula45.equals(cedula15) || cedula45.equals(cedula25)
-                || cedula45.equals(cedula35) || cedula45.equals(cedula55)) {
-            System.out.println("ERROR LA CEDULA " + cedula45 + " YA HA SIDO INGRESADA ");
-
-        } else if (cedula55.equals(cedula05) || cedula55.equals(cedula15) || cedula55.equals(cedula25)
-                || cedula55.equals(cedula35) || cedula55.equals(cedula45)) {
-            System.out.println("ERROR LA CEDULA " + cedula55 + " YA HA SIDO INGRESADA ");
-        }
-
     }
 
     public static void buscar(String matriz[][]) {
